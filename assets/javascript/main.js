@@ -82,7 +82,8 @@ var Game = {
         // console.log("inside the for each" + index);
         // create a button nested in a div, that displays answer choice with index
         var button_choice = $("<button>")
-                              .addClass("btn btn-primary btn-answerChoice")
+                              .addClass("btn btn-primary btn-block " +
+                               "btn-answerChoice")
                               .attr("index", index)
                               .html(choice);
         var button_wrapper = $("<div>", {'class': 'button-wrapper'})

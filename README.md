@@ -1,9 +1,11 @@
-# Project-Name-here
+# Trivia-Game
 
 ### Purpose
 
-brief description of purpose here?
+This game was made mainly to practice some JavaScript and jQuery,
+but also to make a cool trivia game. 
 
 ### Deployment
 
-check out the live deployment of this app here[www.google.com]
+... check out the live deployment of this app
+[here](https://github.com/thechutrain/Trivia-Game)

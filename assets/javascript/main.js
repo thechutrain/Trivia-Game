@@ -23,7 +23,7 @@ var Game = {
     this.totalQuestions = this.questions_data.length; // initialize property, error if done above
     // console.log("totalQuestions: " + this.totalQuestions);
     // 1) Reset Game!
-    this.incorrectAnswer = 0;
+    this.incorrectAnswers = 0;
     this.correctAnswers = 0;
     this.currentQuestion = 0;
     $("#update-target").empty();

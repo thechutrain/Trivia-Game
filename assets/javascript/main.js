@@ -18,17 +18,18 @@ data = [
     // 'URL': "www.google.com",
   },
   // {
-  //   "question": "foo",
+  //   "question": "Who wrote the book Cat\'s cradle?", // tricky to put something in italics!
+  //   "answerChoices": [
+  //     "Ray Bradbury",
+  //     "F. Scott Fitzgerald",
+  //     "Ernest Hemingway",
+  //     "Kurt Vonnegut",
+  //   ],
+  //   "correctAnswer": 3,
   //
   // }
 
 ];
-
-// Game stats object to keep track of number correct & wrong
-var GameStats = {
-  "correctAnswers": 0,
-  "incorrectAnswers": 0,
-}
 
 // ----- Main functionality -----
 var Game = {
@@ -39,10 +40,13 @@ var Game = {
   SECONDS_PER_QUESTION: 10,
   questions_data: data,
   user_guess: -1,
+  correctAnswers: 0,
+  incorrectAnswers: 0,
 
   /* initializes the game, gets called in the read() event listener
   */
   initialize: function(){
+    $("#update-target").empty();
     this.currentIndex = 0;
     this.secondsLeft = this.SECONDS_PER_QUESTION;
     $('#seconds').html(this.secondsLeft); // prevents the lag in seconds
@@ -62,6 +66,7 @@ var Game = {
       this.gameOver();
       return;
     }
+
   // 2) display the question and answers (event listeners)
     this.user_guess = -1;
     this.secondsLeft = this.SECONDS_PER_QUESTION;
@@ -123,19 +128,40 @@ var Game = {
   },
 
   showAnswer: function(){
-    // show answer
-    // console.log("Showing the answer");
+    // 1) Reset timer & empty the div?
+    // Change the view of the timer
     $('#seconds').html("--");
+
+    // 2) Get the current question & correct answer!
     var current_question = this.questions_data[this.currentIndex];
-    // check if the user was correct:
+    var correctIndex = current_question.correctAnswer;
+    var correctAnswer = current_question.answerChoices[correctIndex];
+    // console.log(correctAnswer); // works!
+
+    // console.log(current_question.answerChoices[current_question.correcAnswer]); // doesn't work!!
+    // var correct_answer = current_question.answerChoices[current_question.correcAnswer];
+    // console.log(correct_answer);
+
+    // 3) check if the user was correct:
     if (current_question.correctAnswer == this.user_guess){
-      console.log("You are correct");
+      // display that the user was correct & the correct answer
+      // console.log("You are correct");
+      var message = $("<div>").append(
+                        $("<p>").html(correctAnswer + " is right!")
+                      );
+      this.correctAnswers ++;
     } else {
-      console.log("You're wrong");
+      // display user was wrong, and the correct answer
+      // console.log("You're wrong");
+      var message = $("<div>").append(
+                      $("<p>").html("Sorry, " + correctAnswer +
+                        " was the correct answer.")
+                      );
+      this.incorrectAnswers ++;
     }
 
-    // change the display of the timer
-
+    // 4) Update the view of #update-target ...
+    $("#update-target").append(message);
     // check if the user's choice was correct or not
     // create a set time out interval that will display time ...
     this.intervalTimer = setTimeout(function(){
@@ -145,112 +171,45 @@ var Game = {
       // set the index to the next potential question in array, and display it
       this.currentIndex ++;
       this.nextQuestion(this.currentIndex);
-    }.bind(this), 3000)
+    }.bind(this), 1500)
   },
 
   gameOver: function(){
-    console.log("Game is done, play again?");
+    // create the message
+    var message = $("<h2>").html("You Finished the Game!").append(
+                    $("<h4>").html("Questions answered correctly: "
+                      + this.correctAnswers).append(
+                        $("<h4>").html("Questions answered incorrectly: "
+                          + this.incorrectAnswers)
+                      )
+                  );
+    // create a button for play again
+    var playAgain = $("<div>").append(
+                        $("<button>").addClass("btn btn-info btn-play-again").html(
+                          "play again?"
+                        )
+                    );
+    // append the button to the message
+    message.append(playAgain);
+    $("#update-target").empty().append(message);
+
+    // create a button that is an event listener for initialize game!
+    // the event listener has to be outside
+    var self = this;
+    $(".btn-play-again").on("click", function(){
+      // alert("another game!");
+      self.initialize();
+      // console.log("self: ");
+      // console.log(self);
+      // console.log("this: ");
+      // console.log(this);
+    });
   },
 }
-
-/*
-* @param current_index - the index of the next question
-* @param data - all the question to be asked
-*/
-// function nextQuestion(index){
-//   // Check to make sure the current_index is in the data array
-//   var thisIndex = index;
-//   if (thisIndex >= data.length){
-//     console.log("Error: array out of bound: " + thisIndex);
-//     return false;
-//   }
-//   // create the Time out function
-//   countdownTimer = setTimeout(function(){
-//     console.log("current index: " + thisIndex);
-//     currentIndex ++;
-//     // display the answer
-//     showAnswer();
-//     // // call the next potential question
-//     // nextQuestion(currentIndex, data);
-//   }, 2000);
-// }; // closes nextQuestion function
-
-
-/*
-* @param currentIndex - the index of the next question
-* @param data - all the question to be asked
-*/
-// function showAnswer(){
-//   console.log("The answer!");
-//   countdownTimer = setTimeout(function(){
-//     nextQuestion(currentIndex, data);
-//   }, 3000);
-// }
-//
-
-
-  // A) initialize variables
-  // current_question - index that keeps track of current question
-  // var currentIndex = questionNumber; // will hold the current question
-  // var secondsLeft = 60; // seconds left?
-  //
-  // countdownTimer = window.setTimeout(function(){
-  //
-  // }, 5 *1000);
-
-  // B) If the index is not >= to length of questions ...
-    // 1) Display the question to the user
-    // 2.) Display the answer choices to the user
-      // each answer choice should be a button
-      // event listener to each button
-        // event listener will clear the setTimeout!
-    // 3.) set a timer that counts down from 60 seconds
-      // *.) If counter is not the length of the array, call this function again.
-
-
-
-  // part2) Check to see if the user's input was correctAnswers
-  // wrap the messages in a timer for 5 seconds
-    // if) user is wrong!!
-      // Display what the correct is
-      // update incorrectAnswers var
-
-   // else) user was right!!
-    // tell them good job
-    // update correctAnswers var
-
-
 
 // ----- Event listenter for when page loads -----
 $(document).ready(function(){
   // console.log("ready");
   // call the main game function here!
   Game.initialize();
-
 });
-
-
-
-
-
-
-
-// Opt #1 -- pseudo code
-// initialize an array of Questions
-
-// loop through each question in the array
-
-  // display question and answer to the user
-    // create an event listener for each potential answer
-      // when event listener is called --> PROCEED
-
-  // create an interval timer that counts down from say 60 seconds
-    // for every 1000ms decrement by 1
-    // check  to see if you're out of time
-      // if so, clear the timer and --> PROCEED
-
-  // only when PROCEED,
-  // ** PROBLEM HERE ***
-    // check if user is correct / display answer
-
-  // END OF forEach loop (get the next question if it exists)

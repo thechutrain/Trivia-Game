@@ -20,15 +20,26 @@
       </div>
 
     <hr>
+
+
       <div class="col-sm-2">
         <div class="panel panel-default">
           <div class="panel-body text-center">
-            <p><span id="seconds"></span> seconds left!</p>
+            <p id="seconds"></p>
+            <p> seconds left</p>
           </div>
         </div>
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+            <!-- <span class="sr-only">40% Complete (success)</span> -->
+          </div>
+        </div>
+
       </div>
 
       <div class="col-sm-10">
+
         <div class="text-center well" id="update-target">
           <!-- Where messages will be update -->
         </div>
@@ -38,9 +49,13 @@
   </div>
 
 
+  <div id="footer"> <p class="text-center">&copy; Alan Chu</p></div>
 
 <!-- Including scripts here -->
+
+<!-- <script data-main="assets/js/main" src="assets/javascript/require.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="assets/javascript/TriviaData.js"></script>
 <script src="assets/javascript/main.js"></script>
 </body>
 </html>

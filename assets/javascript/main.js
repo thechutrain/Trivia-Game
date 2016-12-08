@@ -1,35 +1,6 @@
-// -----  Questions & Answers Data -----
-// TO DO: eventually put the data in a separate file and import it
-data = [
-  {
-    "question": "What is your favorite color?",
-    "answerChoices": ["blue", "no red", "no green", "yelllllow!"],
-    "correctAnswer": 0,
-    // 'URL': "www.google.com",
-  },
-  {
-    "question": "What is the capital of Hungry?",
-    "answerChoices": [
-      "Turkey",
-      "Budapest",
-      "Bucharest",
-      "ohh boyy am I hungry!"],
-    "correctAnswer": 1,
-    // 'URL': "www.google.com",
-  },
-  // {
-  //   "question": "Who wrote the book Cat\'s cradle?", // tricky to put something in italics!
-  //   "answerChoices": [
-  //     "Ray Bradbury",
-  //     "F. Scott Fitzgerald",
-  //     "Ernest Hemingway",
-  //     "Kurt Vonnegut",
-  //   ],
-  //   "correctAnswer": 3,
-  //
-  // }
-
-];
+// import TriviaData from './data';
+// var data_file = require('./data');
+// var triviaData = data_file.data;
 
 // ----- Main functionality -----
 var Game = {
@@ -38,14 +9,23 @@ var Game = {
   currentIndex: 0,
   secondsLeft: 10,
   SECONDS_PER_QUESTION: 10,
-  questions_data: data,
+  questions_data: TriviaData, // defined globally
   user_guess: -1,
-  correctAnswers: 0,
-  incorrectAnswers: 0,
+  correctAnswers: 0, //
+  incorrectAnswers: 0, // keeps track of total incorrect
+  currentQuestion: 0, // keeps track of the question number
+  totalQuestions: 0, // keeps track of total # of questions
+
 
   /* initializes the game, gets called in the read() event listener
   */
   initialize: function(){
+    this.totalQuestions = this.questions_data.length; // initialize property, error if done above
+    // console.log("totalQuestions: " + this.totalQuestions);
+    // 1) Reset Game!
+    this.incorrectAnswer = 0;
+    this.correctAnswers = 0;
+    this.currentQuestion = 0;
     $("#update-target").empty();
     this.currentIndex = 0;
     this.secondsLeft = this.SECONDS_PER_QUESTION;
@@ -60,7 +40,13 @@ var Game = {
   * @param index - the index of the question to present
   */
   nextQuestion: function(index){
-    console.log("next quesiton called!");
+    // console.log("next quesiton called!");
+    // 0) update the progress bar
+    this.currentQuestion ++;
+    var progress = (this.currentQuestion / this.totalQuestions) * 100; // need as %
+    progress = "width: " + progress.toString() + "%";
+    // console.log(progress);
+    $(".progress-bar").attr("style", progress);
     // 1) check to see if the index is not in the question data array
     if (index >= this.questions_data.length){
       this.gameOver();

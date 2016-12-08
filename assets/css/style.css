@@ -2,3 +2,24 @@
 /*body {
   background-color: red;
 }*/
+
+/* ---------->>> Fonts & Styles <<<-----------*/
+#seconds {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+/* ---------->>> Buttons! <<<-----------*/
+.btn-answerChoice {
+  margin-bottom: 0.5em;
+}
+
+/* ---------->>> Footer <<<-----------*/
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}

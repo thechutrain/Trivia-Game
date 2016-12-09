@@ -5,21 +5,26 @@
 // ----- Main functionality -----
 var Game = {
   intervalTimer: null, // will hold a reference to the Interval timer
-  countdownTimer: null, //will hold a reference to the countdown 1min
+  // countdownTimer: null, //will hold a reference to the countdown 1min
   currentIndex: 0,
   secondsLeft: 10,
   SECONDS_PER_QUESTION: 10,
-  questions_data: TriviaData, // defined globally
+  questions_data: null, // defined globally
   user_guess: -1,
   correctAnswers: 0, //
   incorrectAnswers: 0, // keeps track of total incorrect
   currentQuestion: 0, // keeps track of the question number
   totalQuestions: 0, // keeps track of total # of questions
+  quizNumber : null,
 
 
   /* initializes the game, gets called in the read() event listener
   */
-  initialize: function(){
+  initialize: function(quizNumber){
+    // get the appropriate quiz;
+    clearInterval(this.intervalTimer);
+    this.quizNumber = quizNumber;
+    this.questions_data = TriviaData[quizNumber];
     this.totalQuestions = this.questions_data.length; // initialize property, error if done above
     // console.log("totalQuestions: " + this.totalQuestions);
     // 1) Reset Game!
@@ -162,6 +167,7 @@ var Game = {
   },
 
   gameOver: function(){
+    // clearInterval(this.intervalTimer);
     // create the message
     var message = $("<h2>").html("You Finished the Game!").append(
                     $("<h4>").html("Questions answered correctly: "
@@ -185,7 +191,9 @@ var Game = {
     var self = this;
     $(".btn-play-again").on("click", function(){
       // alert("another game!");
-      self.initialize();
+      // self.initialize(self.quizNumber);
+      clearInterval(self.intervalTimer);
+      setHomePage();
       // console.log("self: ");
       // console.log(self);
       // console.log("this: ");

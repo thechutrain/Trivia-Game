@@ -1,6 +1,5 @@
-// -----  Questions & Answers Data -----
-// TO DO: eventually put the data in a separate file and import it
-TriviaData = [
+// ---------- Quiz  ---------- //
+randomQuiz = [
   {
     "question": "What is your favorite color?",
     "answerChoices": ["blue", "no red", "no green", "yelllllow!"],
@@ -18,7 +17,7 @@ TriviaData = [
     // 'URL': "www.google.com",
   },
   {
-    "question": "Who wrote the book Cat\'s cradle?", // tricky to put something in italics!
+    "question": "Who wrote the book Cat\'s Cradle?", // tricky to put something in italics!
     "answerChoices": [
       "Ray Bradbury",
       "F. Scott Fitzgerald",
@@ -37,6 +36,10 @@ TriviaData = [
     ],
     "correctAnswer": 1, // index of the correct answer
   },
+];
+
+// ---------- Quiz  ---------- //
+anotherQuiz = [
   {
     "question": "question goes here",
     "answerChoices": [
@@ -47,9 +50,10 @@ TriviaData = [
     ],
     "correctAnswer": 2, // index of the correct answer
   },
+]
 
-];
-
-// EXPORT DATA
-// exports.data = data;
-// export default TriviaData;
+// ---------- add all the quizzess to the TriviaData ---------- //
+TriviaData = [
+  randomQuiz,
+  anotherQuiz,
+]

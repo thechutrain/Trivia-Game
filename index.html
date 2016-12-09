@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="assets/css/quiz.css">
   <link rel="stylesheet" href="assets/css/debugging.css">
 
-  <title>Trivia</title>
+  <title>Quizard | quiz your friends!</title>
 </head>
 <body>
   <!-- >>>>>>>>>>> Header Container <<<<<<<<<<<<<  -->
   <div class="container" id="header-container">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
-        <h2 class="text-center"> Welcome to Trivia!</h2>
+        <h2 class="text-center"> Welcome to Quizard!</h2>
       </div>
 
       <hr>
@@ -29,10 +29,10 @@
   <!-- >>>>>>>>>>> Landing Container <<<<<<<<<<<<<  -->
   <div class="container-fluid" id="landing-container">
     <!-- >>>>> ROW FOR ALL THE QUIZES <<<<<< -->
-    <div class="row">
+    <div class="row" id="quiz-wrapper">
       <!-- >>>>  Select Quiz #1 <<<<  -->
       <div class="col-sm-4">
-        <button class="btn btn-block quiz-button">
+        <button class="btn btn-block quiz-button" val-quiz="1">
           <div class="panel panel-default">
             <div class="panel-heading">
               Panel heading without title
@@ -93,10 +93,10 @@
 
 
   <!-- >>>>>>>>>>> Quiz Container <<<<<<<<<<<<<  -->
-  <div class="container" id="quiz-container">
+  <div class="container hide" id="game-container">
     <div class="row">
       <!-- >>>>  Progress Side Bar <<<<  -->
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <div class="panel panel-default">
             <div class="panel-body text-center">
               <p id="seconds"></p>
@@ -114,7 +114,7 @@
         </div>
 
       <!-- >>>> Quizing section <<<<  -->
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <div class="text-center well" id="update-target">
           <!-- Where messages will be update -->
         </div>
@@ -127,13 +127,17 @@
 
 
   <!-- >>>>>>>>>>>  Footer <<<<<<<<<<<<<  -->
-  <div id="footer-container"> <p class="text-center">&copy; Alan Chu</p></div>
+  <div id="footer-container">
+    <p class="text-center">&copy; Alan Chu</p>
+  </div>
 
-<!-- Including scripts here -->
-
-<!-- <script data-main="assets/js/main" src="assets/javascript/require.js"></script> -->
+<!-- Including scripts here, load jQuery before bootstrap -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+</script>
 <script src="assets/javascript/TriviaData.js"></script>
+<script src="assets/javascript/functions.js"></script>
 <script src="assets/javascript/game.js"></script>
 <script src="assets/javascript/main.js"></script>
 </body>

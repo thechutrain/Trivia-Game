@@ -1,0 +1,35 @@
+/* ---------->>> Fonts & Styles <<<-----------*/
+#seconds {
+  font-size: 4em;
+  font-weight: 600;
+}
+
+/* ---------->>> Quiz Buttons! <<<-----------*/
+/* button that wraps the quiz panel */
+.quiz-button {
+  /*margin-bottom: 0.5em;*/
+  background-color: inherit;
+  /*width: 100%;*/
+  /*padding: 0.5em;*/
+}
+
+.panel{
+  /*margin: 0em; */
+  /*gets rid of bs3 default */
+}
+.panel:hover {
+  border: 2px solid black;
+}
+
+.selectedQuiz {
+  border: 3px dashed green;
+}
+/* ---------->>> Footer <<<-----------*/
+#footer-container {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}

@@ -1,0 +1,27 @@
+/* ---------->>> hide & display <<<-----------*/
+/* assumes that hi*/
+.hide {
+  display: none;
+  /*visibility: hidden;*/
+}
+
+.show-block {
+  /*visibility: visible;*/
+  display: block;
+}
+/* ---------->>> containers <<<-----------*/
+.container{
+  margin-bottom: 5em;
+  padding: 1em;
+  border-bottom: 2px solid #eee;
+}
+
+/* ---------->>> Footer <<<-----------*/
+#footer-container {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}

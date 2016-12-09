@@ -6,56 +6,135 @@
   <link rel="stylesheet" href="assets/css/reset.css">
   <!-- includes bootstrap 3 as default, without integrity/crossorigin -->
   <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-  >
-  <link rel="stylesheet" href="assets/css/style.css">
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/quiz.css">
+  <link rel="stylesheet" href="assets/css/debugging.css">
 
   <title>Trivia</title>
 </head>
 <body>
-  <div class="container">
+  <!-- >>>>>>>>>>> Header Container <<<<<<<<<<<<<  -->
+  <div class="container" id="header-container">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
         <h2 class="text-center"> Welcome to Trivia!</h2>
       </div>
 
-    <hr>
+      <hr>
 
+    </div>
+  </div>
+  <!-- >>>>>>>>>>> Landing Container <<<<<<<<<<<<<  -->
+  <div class="container-fluid" id="landing-container">
+    <!-- >>>>> ROW FOR ALL THE QUIZES <<<<<< -->
+    <div class="row">
+      <!-- >>>>  Select Quiz #1 <<<<  -->
+      <div class="col-sm-4">
+        <button class="btn btn-block quiz-button">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Panel heading without title
+            </div>
+            <div class="panel-body">
+              Quiz 1
+            </div>
+            <div class="panel-footer">
+              Panel footer
+            </div>
+          </div> <!--  closes panel -->
+        </button>
+      </div> <!--  closes col-sm-4 -->
 
-      <div class="col-sm-2">
-        <div class="panel panel-default">
-          <div class="panel-body text-center">
-            <p id="seconds"></p>
-            <p> seconds left</p>
-          </div>
-        </div>
+      <!-- >>>>  Select Quiz #1 <<<<  -->
+      <div class="col-sm-4">
+        <button class="btn btn-block quiz-button">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Panel heading without title
+            </div>
+            <div class="panel-body">
+              Quiz 2
+            </div>
+            <div class="panel-footer">
+              Panel footer
+            </div>
+          </div> <!--  closes panel -->
+        </button>
+      </div> <!--  closes col-sm-4 -->
 
-        <div class="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-            <!-- <span class="sr-only">40% Complete (success)</span> -->
-          </div>
-        </div>
+      <!-- >>>>  Select Quiz #1 <<<<  -->
+      <div class="col-sm-4">
+        <button class="btn btn-block quiz-button">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Panel heading without title
+            </div>
+            <div class="panel-body">
+              Quiz 3
+            </div>
+            <div class="panel-footer">
+              Panel footer
+            </div>
+          </div> <!--  closes panel -->
+        </button>
+      </div> <!--  closes col-sm-4 -->
 
+    </div> <!--  closes row -->
+
+    <!-- >>>>> Row for play a random quiz <<<<<< -->
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <button class="btn btn-primary btn-block play-game-button">Play Game</button>
       </div>
+    </div>
+  </div> <!-- >>>>> closes Landing Container <<<<<< -->
 
+
+  <!-- >>>>>>>>>>> Quiz Container <<<<<<<<<<<<<  -->
+  <div class="container" id="quiz-container">
+    <div class="row">
+      <!-- >>>>  Progress Side Bar <<<<  -->
+        <div class="col-sm-2">
+          <div class="panel panel-default">
+            <div class="panel-body text-center">
+              <p id="seconds"></p>
+              <p> seconds left</p>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar progress-bar-success"
+            role="progressbar" aria-valuenow="40" aria-valuemin="0"
+            aria-valuemax="100" style="width: 0%">
+              <!-- <span class="sr-only">40% Complete (success)</span> -->
+            </div>
+          </div>
+        </div>
+
+      <!-- >>>> Quizing section <<<<  -->
       <div class="col-sm-10">
-
         <div class="text-center well" id="update-target">
           <!-- Where messages will be update -->
         </div>
       </div>
 
-    </div>
-  </div>
+    </div> <!--  closes row -->
+  </div> <!-- >>>>> closes Main Container <<<<<< -->
 
 
-  <div id="footer"> <p class="text-center">&copy; Alan Chu</p></div>
+
+
+  <!-- >>>>>>>>>>>  Footer <<<<<<<<<<<<<  -->
+  <div id="footer-container"> <p class="text-center">&copy; Alan Chu</p></div>
 
 <!-- Including scripts here -->
 
 <!-- <script data-main="assets/js/main" src="assets/javascript/require.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="assets/javascript/TriviaData.js"></script>
+<script src="assets/javascript/game.js"></script>
 <script src="assets/javascript/main.js"></script>
 </body>
 </html>

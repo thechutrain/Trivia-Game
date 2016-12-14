@@ -139,14 +139,14 @@ var Game = {
       // display that the user was correct & the correct answer
       // console.log("You are correct");
       var message = $("<div>").append(
-                        $("<p>").html(correctAnswer + " is right!")
+                        $("<h3>").html(correctAnswer + " is right!")
                       );
       this.correctAnswers ++;
     } else {
       // display user was wrong, and the correct answer
       // console.log("You're wrong");
       var message = $("<div>").append(
-                      $("<p>").html("Sorry, " + correctAnswer +
+                      $("<h3>").html("Sorry, " + correctAnswer +
                         " was the correct answer.")
                       );
       this.incorrectAnswers ++;

@@ -24,6 +24,12 @@
 .selectedQuiz {
   border: 3px dashed green;
 }
+/* ---------->>> play button <<<-----------*/
+#play-button-row {
+  margin-bottom: 8em;
+  margin-top: 2em;
+}
+
 /* ---------->>> Footer <<<-----------*/
 #footer-container {
    position:fixed;

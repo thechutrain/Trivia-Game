@@ -52,8 +52,24 @@ anotherQuiz = [
   },
 ]
 
+
+// ---------- Movie Quiz  ---------- //
+movieQuiz = [
+  {
+    "question": "Question about a movie goes here!",
+    "answerChoices": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctAnswer": 2, // index of the correct answer
+  },
+]
+
 // ---------- add all the quizzess to the TriviaData ---------- //
 TriviaData = [
   randomQuiz,
   anotherQuiz,
+  movieQuiz,
 ]

@@ -25,7 +25,11 @@ function setHomePage(){
 
   // B) create an event listener for just the play game button
   $(".play-game-button").on("click", function(){
-      Game.initialize(1);
+    // get the selected quiz number
+    // var test = $(".selectedQuiz").dataset;
+    var quizNumber = document.querySelector(".selectedQuiz").dataset.quizNumber;
+    // console.log(test);
+      Game.initialize(quizNumber);
       // hide the quiz choices
       $("#landing-container").addClass("hide");
       $("#game-container").removeClass("hide").addClass("display");

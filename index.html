@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/home.css">
   <link rel="stylesheet" href="assets/css/quiz.css">
-  <link rel="stylesheet" href="assets/css/debugging.css">
+  <!-- <link rel="stylesheet" href="assets/css/debugging.css"> -->
 
   <title>Quizard | quiz your friends!</title>
 </head>
@@ -28,17 +28,24 @@
   </div>
   <!-- >>>>>>>>>>> Landing Container <<<<<<<<<<<<<  -->
   <div class="container-fluid" id="landing-container">
+    <div class="row" id="directions">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h3>Directions:</h3>
+        <p>Select a quiz below, and press play! You'll have 15 seconds to answer correctly.</p>
+      </div>
+    </div>
+
     <!-- >>>>> ROW FOR ALL THE QUIZES <<<<<< -->
     <div class="row" id="quiz-wrapper">
       <!-- >>>>  Select Quiz #1 <<<<  -->
       <div class="col-sm-4">
-        <button class="btn btn-block quiz-button" val-quiz="1">
+        <button class="btn btn-block quiz-button" data-quiz-number=0>
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <!-- <div class="panel-heading">
               Panel heading without title
-            </div>
+            </div> -->
             <div class="panel-body">
-              Quiz 1
+              <h3>Movie Trivia!</h3>
             </div>
             <div class="panel-footer">
               Panel footer
@@ -49,13 +56,13 @@
 
       <!-- >>>>  Select Quiz #1 <<<<  -->
       <div class="col-sm-4">
-        <button class="btn btn-block quiz-button">
+        <button class="btn btn-block quiz-button" data-quiz-number=1>
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <!-- <div class="panel-heading">
               Panel heading without title
-            </div>
+            </div> -->
             <div class="panel-body">
-              Quiz 2
+              <h3>American History Trivia!</h3>
             </div>
             <div class="panel-footer">
               Panel footer
@@ -66,13 +73,13 @@
 
       <!-- >>>>  Select Quiz #1 <<<<  -->
       <div class="col-sm-4">
-        <button class="btn btn-block quiz-button">
+        <button class="btn btn-block quiz-button" data-quiz-number=2>
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <!-- <div class="panel-heading">
               Panel heading without title
-            </div>
+            </div> -->
             <div class="panel-body">
-              Quiz 3
+              <h3>Geography Trivia!</h3>
             </div>
             <div class="panel-footer">
               Panel footer
